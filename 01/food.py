@@ -15,11 +15,11 @@ def get_input():
 def main():
     elves = get_input()
     # part 1
-    biggestElf = max([sum(elf) for elf in elves])
+    sortedElves = sorted([sum(elf) for elf in elves], reverse=True)
+    biggestElf = sortedElves[0]
     print("Top elf: {}".format(biggestElf))
 
     # part 2
-    sortedElves = sorted([sum(elf) for elf in elves], reverse=True)
     topThree = sum(sortedElves[:3])
     print("Top three sum: {}".format(topThree))
 
