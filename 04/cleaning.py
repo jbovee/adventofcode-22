@@ -1,13 +1,15 @@
 get_input = lambda: [l.strip('\n') for l in open('input','r+',encoding='utf-8').readlines()]
 
+parse_range = lambda r: list(map(lambda x: int(x), r.split('-')))
+
+parse_assignment = lambda a: parse_range(a.split(',')[0]) + parse_range(a.split(',')[1])
+
 def main():
     assignments = get_input()
     total = 0
     total_2 =0
     for assignment in assignments:
-        elfx,elfy = assignment.split(',')
-        x1,x2 = map(lambda x: int(x), elfx.split('-'))
-        y1,y2 = map(lambda y: int(y), elfy.split('-'))
+        x1,x2,y1,y2 = parse_assignment(assignment)
         # part 1
         if (x1 >= y1 and x2 <= y2) or (y1 >= x1 and y2 <= x2):
             total += 1
