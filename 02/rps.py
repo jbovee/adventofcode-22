@@ -16,7 +16,7 @@ def main():
         'C Z': 6
         }
     for match in matches:
-        score = score + points[match]
+        score += points[match]
     print('Total score: {}'.format(score))
 
     # part 2
@@ -33,7 +33,7 @@ def main():
         'C Z': 7
     }
     for match in matches:
-        score_2 = score_2 + points_2[match]
+        score_2 += points_2[match]
     print('Total score: {}'.format(score_2))
 
 if __name__ == '__main__':

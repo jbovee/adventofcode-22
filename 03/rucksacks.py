@@ -10,7 +10,7 @@ def main():
         mid = len(rucksack) // 2
         pocket1,pocket2 = rucksack[:mid],rucksack[mid:]
         common = set(pocket1).intersection(set(pocket2))
-        total = total + priority(list(common)[0])
+        total += priority(list(common)[0])
     print('Total priority: {}'.format(total))
 
     # part 2
@@ -18,7 +18,7 @@ def main():
     for r in range(0,len(rucksacks),3):
         r1,r2,r3 = rucksacks[r:r+3]
         common = set(r1).intersection(set(r2),set(r3))
-        total_2 = total_2 + priority(list(common)[0])
+        total_2 += priority(list(common)[0])
     print('Total priority: {}'.format(total_2))
 
 if __name__ == '__main__':
