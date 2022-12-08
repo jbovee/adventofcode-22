@@ -14,8 +14,14 @@ def get_input():
 
 def main():
     elves = get_input()
+    # part 1
     biggestElf = max([sum(elf) for elf in elves])
-    print(biggestElf)
+    print("Top elf: {}".format(biggestElf))
+
+    # part 2
+    sortedElves = sorted([sum(elf) for elf in elves], reverse=True)
+    topThree = sum(sortedElves[:3])
+    print("Top three sum: {}".format(topThree))
 
 if __name__ == "__main__":
     main()
