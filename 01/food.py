@@ -17,11 +17,11 @@ def main():
     # part 1
     sortedElves = sorted([sum(elf) for elf in elves], reverse=True)
     biggestElf = sortedElves[0]
-    print("Top elf: {}".format(biggestElf))
+    print('Top elf: {}'.format(biggestElf))
 
     # part 2
     topThree = sum(sortedElves[:3])
-    print("Top three sum: {}".format(topThree))
+    print('Top three sum: {}'.format(topThree))
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

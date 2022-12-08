@@ -39,5 +39,5 @@ def main():
         score_2 = score_2 + points_2[match]
     print('Total score: {}'.format(score_2))
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
