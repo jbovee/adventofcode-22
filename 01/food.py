@@ -1,6 +1,6 @@
-def get_input():
-    with open('input','r+',encoding='utf-8') as f:
-        data = [l.strip('\n') for l in f.readlines()]
+get_input = lambda: [l.strip('\n') for l in open('input','r+',encoding='utf-8').readlines()]
+
+def parse_data(data):
     elves,start,end = [],0,0
     while start < len(data):
         try:
@@ -13,7 +13,8 @@ def get_input():
     return elves
 
 def main():
-    elves = get_input()
+    data = get_input()
+    elves = parse_data(data)
     # part 1
     sortedElves = sorted([sum(elf) for elf in elves], reverse=True)
     biggestElf = sortedElves[0]

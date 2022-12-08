@@ -1,9 +1,6 @@
-def priority(c):
-    return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.index(c) + 1
+priority = lambda c: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.index(c) + 1
 
-def get_input():
-    with open('input','r+',encoding='utf-8') as f:
-        return [l.strip('\n') for l in f.readlines()]
+get_input = lambda: [l.strip('\n') for l in open('input','r+',encoding='utf-8').readlines()]
 
 def main():
     rucksacks = get_input()

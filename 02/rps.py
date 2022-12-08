@@ -1,7 +1,4 @@
-def get_input():
-    with open('input','r+',encoding='utf-8') as f:
-        data = [l.strip('\n') for l in f.readlines()]
-    return data
+get_input = lambda: [l.strip('\n') for l in open('input','r+',encoding='utf-8').readlines()]
 
 def main():
     matches = get_input()
