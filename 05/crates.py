@@ -22,14 +22,20 @@ def main():
                     stacksH[i-1] = [layer[charPos]]
                 else:
                     stacksH[i-1].append(layer[charPos])
+    stacksH_2 = stacksH[:]
     # execute instructions on lists
     for instr in instrs:
         amt,src,dst = instr
+        # part 2
+        stacksH_2[dst-1] = stacksH_2[dst-1] + stacksH_2[src-1][-amt:]
+        stacksH_2[src-1] = stacksH_2[src-1][:-amt]
+        # part 1
         for _ in range(amt):
             stacksH[dst-1].append(stacksH[src-1][-1])
             stacksH[src-1].pop()
 
     print(''.join([stack[-1] for stack in stacksH]))
+    print(''.join(['' if len(stack)==0 else stack[-1] for stack in stacksH_2]))
 
 if __name__ == '__main__':
     main()
