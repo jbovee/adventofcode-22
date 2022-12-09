@@ -1,26 +1,30 @@
 get_input = lambda: [l.strip('\n') for l in open('input','r+',encoding='utf-8').readlines()]
 
+def find_set_of_length(target,datastream):
+    buffer = []
+    for c in range(len(datastream)):
+        buffer.append(datastream[c])
+        if len(buffer) > target:
+            buffer = buffer[1:]
+        if len(list(set(buffer))) == target:
+            return(c+1)
+    return(-1)
+
 def main():
     datastreams = get_input()
     for datastream in datastreams:
         # part 1
-        latestFour = []
-        for c in range(len(datastream)):
-            latestFour.append(datastream[c])
-            if len(latestFour) > 4:
-                latestFour = latestFour[1:]
-            if len(list(set(latestFour))) == 4:
-                print('After character: {}'.format(c+1))
-                break
+        start = find_set_of_length(4,datastream)
+        if start != -1:
+            print('After character: {}'.format(start))
+        else:
+            print('Failed to find set of length 4')
         # part 2
-        latestFourteen = []
-        for c in range(len(datastream)):
-            latestFourteen.append(datastream[c])
-            if len(latestFourteen) > 14:
-                latestFourteen = latestFourteen[1:]
-            if len(list(set(latestFourteen))) == 14:
-                print('After character: {}'.format(c+1))
-                break
+        message = find_set_of_length(14,datastream)
+        if message != -1:
+            print('After character: {}'.format(message))
+        else:
+            print('Failed to find set of length 14')
 
 if __name__ == '__main__':
     main()
