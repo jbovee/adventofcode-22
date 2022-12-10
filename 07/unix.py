@@ -39,6 +39,13 @@ class Directory:
             total += sum([subdir.get_total_size() for subdir in self.subdirs])
         return total
     
+    def get_dir_sizes(self):
+        dirSizes = []
+        dirSizes.append(self.get_total_size())
+        for subdir in self.subdirs:
+            dirSizes += subdir.get_dir_sizes()
+        return dirSizes
+    
     def solution(self):
         total = 0
         if self.get_total_size() < 100000:
@@ -76,6 +83,12 @@ def main():
             cwd.add_file(filename,filesize)
     cwd = cwd.get_root_dir()
     print('Total of dirs <= 100000: {}'.format(cwd.solution()))
+
+    totalUsed = cwd.get_total_size()
+    toFree = 30000000 - (70000000 - totalUsed)
+    allDirSizes = cwd.get_dir_sizes()
+    smallest = list(filter(lambda x: x > toFree,sorted(allDirSizes)))[0]
+    print('Smallest dir to make space: {}'.format(smallest))
 
 if __name__ == '__main__':
     main()
